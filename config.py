@@ -1,7 +1,7 @@
 # config.py
 
 # PARÂMETROS GERAIS DA SIMULAÇÃO
-SIMULATION_STEP_SECONDS = 5
+SIMULATION_STEP_SECONDS = 300
 
 # CONFIGURAÇÃO DA ACIARIA
 PROCESS_ROUTING = {
@@ -60,16 +60,17 @@ INITIAL_CHEMICAL_COMPOSITION = {
 
 # PARÂMETROS DE FALHA
 # Multiplicador base para a probabilidade de falha.
-FAILURE_PROBABILITY_MULTIPLIER = 0.2 # VALOR BEM MAIS ALTO
+FAILURE_PROBABILITY_MULTIPLIER = 2.5
 
 # Eventos Globais Súbitos
 GLOBAL_EVENTS = {
     'SURTO_DE_TENSAO': {
-        # Chance base de o evento começar a cada passo da simulação
-        'base_probability_per_step': 0.001, # VALOR BEM MAIS ALTO
+        # Chance base do evento começar a cada passo.
+        # Aumentada em 5x (de 0.001 para 0.005) para tornar os surtos de tensão mais frequentes.
+        'base_probability_per_step': 0.005, #
         # Duração do evento em passos de simulação (120 passos * 5s = 10 minutos)
-        'duration_steps': 120,
+        'duration_steps': 120, #
         # Multiplicador de estresse: Aumenta a chance de falha em 50x durante o evento
-        'failure_chance_multiplier': 50.0
+        'failure_chance_multiplier': 50.0 #
     }
 }
